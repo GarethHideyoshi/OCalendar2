@@ -96,7 +96,7 @@
     }
 
     function resolveCourse() {
-        return state.course === "mine" ? user.program : state.course;
+        return state.course === "mine" ? normalizeProgram(user.program) : state.course;
     }
 
     // Course only works when the department is COLLEGE (same rule as the upload form)
@@ -284,7 +284,7 @@
             // GENERAL announcements are visible in every department filter.
             if (dept && a.department !== dept && a.department !== "GENERAL") return false;
             // A general announcement is not limited to a specific college program.
-            if (course && a.department === "COLLEGE" && a.program !== course) return false;
+            if (course && a.department === "COLLEGE" && normalizeProgram(a.program) !== course) return false;
 
             if (state.period === "previous" && !(a.date < today)) return false;
             if (state.period === "today" && a.date !== today) return false;
