@@ -9,7 +9,7 @@ const USER_KEY = "users";
 const SESSION_KEY = "currentUserEmail";
 
 // Page file names - change here if you rename one (e.g. homepage.html -> index.html)
-const PAGES = { home: "homepage.html", login: "login.html", profile: "profile.html", dashboard: "dashboard.html" };
+const PAGES = { home: "index.html", login: "login.html", profile: "profile.html", dashboard: "dashboard.html" };
 
 // Keep these in sync with the <select> options in dashboard.html
 const OC_DEPARTMENTS = ["DPRO", "IBED", "COLLEGE", "MANAGEMENT"];
