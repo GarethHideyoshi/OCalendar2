@@ -1,0 +1,2 @@
+# The site has no index.html, so send visitors at the root to the homepage.
+/    /homepage.html    302
