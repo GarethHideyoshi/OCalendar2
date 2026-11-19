@@ -52,7 +52,7 @@
     }
 
     function programLabel(value) {
-        const found = OC_PROGRAMS.find(([v]) => v === value);
+        const found = OC_PROGRAMS.find(([v]) => v === normalizeProgram(value));
         return found ? found[1] : value;
     }
 
@@ -72,7 +72,7 @@
         email.value = u.email;
         department.value = u.department || "";
         syncProgram();
-        program.value = u.program || "";
+        program.value = normalizeProgram(u.program);
         refreshDescription(u);
     }
 
