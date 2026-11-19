@@ -450,7 +450,7 @@ body {
 .pos-description { grid-area: 3 / 1 / 4 / 2; }
 .pos-description-input { grid-area: 4 / 1 / 7 / 2; resize: vertical; }
 .pos-image-label { grid-area: 7 / 1 / 8 / 2; }
-.image-preview { grid-area: 8 / 1 / 10 / 2; width: min(100%, 100px); }
+.image-preview { grid-area: 8 / 1 / 10 / 2; width: min(100%, 50px); }
 .pos-image-input { grid-area: 10 / 1 / 11 / 2; align-self: center; }
 .pos-content-type-label { grid-area: 1 / 2 / 2 / 3; }
 .pos-content-type { grid-area: 2 / 2 / 3 / 3; }
