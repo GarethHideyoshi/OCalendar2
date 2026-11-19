@@ -162,6 +162,7 @@ body{
     letter-spacing: 0.05em;
 }
 
+/* HARMLESS  */
 .profile{
     display: flex;
     justify-content: flex-end;
