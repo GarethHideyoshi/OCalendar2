@@ -281,8 +281,10 @@
         const course = resolveCourse();
 
         const list = AnnouncementStore.getByType(state.type).filter(a => {
-            // GENERAL announcements are visible in every department filter.
-            if (dept && a.department !== dept && a.department !== "GENERAL") return false;
+            // GENERAL filter shows general announcements plus all COLLEGE announcements.
+            if (dept === "GENERAL" && a.department !== "GENERAL" && a.department !== "COLLEGE") return false;
+            // GENERAL announcements are also visible in every department filter.
+            if (dept && dept !== "GENERAL" && a.department !== dept && a.department !== "GENERAL") return false;
             // A general announcement is not limited to a specific college program.
             if (course && a.department === "COLLEGE" && normalizeProgram(a.program) !== course) return false;
 
