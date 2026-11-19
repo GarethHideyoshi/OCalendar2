@@ -81,7 +81,8 @@
     fillSelect(deptSelect, [
         ...(user.department ? [["mine", "My dept."]] : []),
         ["", "All depts."],
-        ...OC_DEPARTMENTS.map(d => [d, d])
+        ...OC_DEPARTMENTS.map(d => [d, d]),
+        ["GENERAL", "GENERAL (All departments)"]
     ]);
 
     fillSelect(courseSelect, [
@@ -280,8 +281,10 @@
         const course = resolveCourse();
 
         const list = AnnouncementStore.getByType(state.type).filter(a => {
-            if (dept && a.department !== dept) return false;
-            if (course && a.program !== course) return false;
+            // GENERAL announcements are visible in every department filter.
+            if (dept && a.department !== dept && a.department !== "GENERAL") return false;
+            // A general announcement is not limited to a specific college program.
+            if (course && a.department === "COLLEGE" && a.program !== course) return false;
 
             if (state.period === "previous" && !(a.date < today)) return false;
             if (state.period === "today" && a.date !== today) return false;
