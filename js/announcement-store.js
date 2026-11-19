@@ -14,13 +14,27 @@ const PAGES = { home: "index.html", login: "login.html", profile: "profile.html"
 
 // Departments are profile categories only; they do not grant dashboard access.
 const OC_DEPARTMENTS = ["DPRO", "IBED", "COLLEGE", "MANAGEMENT"];
+// Program codes are the canonical values used by signup, publishing, and filters.
 const OC_PROGRAMS = [
-    ["Criminology, Arts and Sciences", "Criminology, Arts and Sciences"],
-    ["Computer Studies", "College of Computer Studies"],
-    ["Health Related Sciences", "College of Health Related Sciences"],
-    ["Teacher Education", "College of Teacher Education"],
-    ["Corporate and Management Education", "College of Corporate and Management Education"]
+    ["CAD", "Criminology, Arts and Sciences"],
+    ["CS", "College of Computer Studies"],
+    ["HRS", "College of Health Related Sciences"],
+    ["TE", "College of Teacher Education"],
+    ["CME", "College of Corporate and Management Education"]
 ];
+
+// Also recognizes older full-name values already saved in localStorage.
+function normalizeProgram(value) {
+    const aliases = {
+        CAD: ["CAD", "Criminology, Arts and Sciences"],
+        CS: ["CS", "Computer Studies", "College of Computer Studies"],
+        HRS: ["HRS", "Health Related Sciences", "College of Health Related Sciences"],
+        TE: ["TE", "Teacher Education", "College of Teacher Education"],
+        CME: ["CME", "Corporate and Management Education", "College of Corporate and Management Education"]
+    };
+    const match = Object.entries(aliases).find(([, values]) => values.includes(String(value || "").trim()));
+    return match ? match[0] : String(value || "").trim();
+}
 
 // Only this email can access the dashboard, regardless of department.
 function canAccessDashboard(user) {
