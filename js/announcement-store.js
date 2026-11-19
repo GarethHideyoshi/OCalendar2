@@ -7,11 +7,12 @@
 const ANNOUNCEMENT_KEY = "announcements";
 const USER_KEY = "users";
 const SESSION_KEY = "currentUserEmail";
+const ADMIN_EMAIL = "amogus@gmail.com";
 
 // Page file names - change here if you rename one (e.g. homepage.html -> index.html)
 const PAGES = { home: "index.html", login: "login.html", profile: "profile.html", dashboard: "dashboard.html" };
 
-// Keep these in sync with the <select> options in dashboard.html
+// Departments are profile categories only; they do not grant dashboard access.
 const OC_DEPARTMENTS = ["DPRO", "IBED", "COLLEGE", "MANAGEMENT"];
 const OC_PROGRAMS = [
     ["Criminology, Arts and Sciences", "Criminology, Arts and Sciences"],
@@ -21,8 +22,9 @@ const OC_PROGRAMS = [
     ["Corporate and Management Education", "College of Corporate and Management Education"]
 ];
 
+// Only this email can access the dashboard, regardless of department.
 function canAccessDashboard(user) {
-    return Boolean(user && user.department === "MANAGEMENT");
+    return Boolean(user && normalizeEmail(user.email) === ADMIN_EMAIL);
 }
 
 
