@@ -8,7 +8,7 @@
     // Set to "" to accept any email address
     const ALLOWED_EMAIL_DOMAIN = "gmail.com";
 
-    // Already signed in -> continue to the page for this user's role
+    // Already signed in -> continue to the dashboard only for the admin email
     const currentUser = Session.get();
     if (currentUser) {
         location.replace(canAccessDashboard(currentUser) ? PAGES.dashboard : PAGES.home);
