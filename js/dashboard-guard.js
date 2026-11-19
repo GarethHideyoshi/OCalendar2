@@ -11,5 +11,5 @@
         return;
     }
 
-    document.body.hidden = true;
+    document.body.hidden = false;
 })();
