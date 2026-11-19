@@ -123,7 +123,7 @@ function matches(a, f) {
         if (f.timeMode === "exact" && a.time !== f.time) return false;
     }
     if (f.department && a.department !== f.department) return false;
-    if (f.program && a.program !== f.program) return false;
+    if (f.program && normalizeProgram(a.program) !== f.program) return false;
     return true;
 }
 
@@ -223,7 +223,8 @@ function buildCard(a) {
     }
 
     const info = el("div", "announcement-info");
-    const target = a.program ? `${a.department} - ${a.program}` : a.department;
+    const selectedProgram = OC_PROGRAMS.find(([value]) => value === normalizeProgram(a.program));
+    const target = a.program ? `${a.department} - ${selectedProgram ? selectedProgram[1] : a.program}` : a.department;
 
     const actions = el("div", "announcement-actions");
     actions.append(
