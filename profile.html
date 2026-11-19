@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - OC Announcement Page</title>
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/client-theme.css">
+    
+</head>
+<body class="profile-page">
+
+    <div class="Boody">
+
+        <div class="headhead-profile">
+
+            <a class="Logo-cont adjust" href="homepage.html">
+            <div class="Logo">
+                <div class="Logo-img"></div>
+                <div class="aura-hover"></div>
+                <div class="aura"></div>
+                
+            </div>
+            </a>
+
+            <a class="profile-back" href="homepage.html">
+                <span aria-hidden="true">←</span>
+                <span class="back-label">Back to calendar</span>
+            </a>
+            <div class="air"></div>
+            <button type="button" class="signout-btn" id="signOutBtn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0"/><path d="M12 2v10"/></svg>
+                Sign out
+            </button>
+        </div>
+
+        <form class="form-panel" id="profileForm" novalidate>
+
+            <label for="fullName" class="field-label">Full Name:</label>
+            <input id="fullName" class="field-input" type="text"
+                placeholder="Enter your full name" autocomplete="name" required>
+
+            <label for="email" class="field-label">Email Address:</label>
+            <input id="email" class="field-input" type="email" readonly>
+
+            <label for="department" class="field-label">Department:</label>
+            <select id="department" class="field-select" required></select>
+
+            <label for="program" class="field-label">Grade / Program:</label>
+            <select id="program" class="field-select"></select>
+
+            <div class="form-actions">
+                <button type="button" class="btn-text" id="cancelBtn">Cancel</button>
+                <button type="submit" class="btn" id="saveBtn">Save &amp; Update</button>
+            </div>
+
+            <p class="form-msg" id="formMsg" role="status"></p>
+        </form>
+
+        <section class="desc-block">
+            <h2></h2>
+            <p id="descText"></p>
+        </section>
+
+    </div>
+
+    <script src="js/announcement-store.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>
