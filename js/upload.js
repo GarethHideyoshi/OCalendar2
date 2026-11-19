@@ -77,7 +77,7 @@ window.startEdit = function (id) {
     contentType.value = rec.contentType;
     department.value = rec.department;
     syncProgramState();
-    if (rec.department === "COLLEGE") program.value = rec.program;
+    if (rec.department === "COLLEGE") program.value = normalizeProgram(rec.program);
     eventDate.value = rec.date;
     eventTime.value = rec.time;
 
